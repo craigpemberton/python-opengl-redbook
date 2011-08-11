@@ -1,5 +1,4 @@
 #!/usr/bin/python
-'''Derived from redbook/aaindex.c'''
 
 from graphics import *
 
@@ -7,8 +6,9 @@ class AntialiasIndex(Window):
 	'''Draw two anti-aliased lines in color index mode. 'r' rotates the lines in opposite directions.'''
 	def __init__(self):
 		''' Initialize antialiasing for color index mode. A green color ramp starts at ramp1Start, a blue one at ramp2Start. \
-		The ramps must be a multiple of 16.'''
+		The ramps must be multiples of 16.'''
 		super(AntialiasIndex, self).__init__("Antialias Index", 200, 200, True)
+		self.source = "aaindex.c"
 		glutInitDisplayMode(GLUT_DOUBLE|GLUT_INDEX)
 		self.rampSize   = 16
 		self.ramp1Start = 32

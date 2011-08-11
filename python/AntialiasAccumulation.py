@@ -1,8 +1,7 @@
 #!/usr/bin/python
-'''Derived from redbook/accanti.c'''
 
-from graphics	import *
-from jitter	import *
+from Window import *
+from jitter import *
 
 class AccumulatorAntialias(Window):
 	''' Use the accumulation buffer to do full-scene antialiasing on a scene with orthographic parallel projection.'''
@@ -10,6 +9,7 @@ class AccumulatorAntialias(Window):
 		'''Initialize lighting and other values.'''
 		super(AccumulatorAntialias, self).__init__("Accumulator Antialias", 800, 800, True)
 		glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_ACCUM|GLUT_DEPTH)
+		self.source = "accanti.c"
 		self.acSize = 8
 		mat_ambient 	= (1, 1, 1, 1)
 		mat_specular	= (1, 1, 1, 1)
