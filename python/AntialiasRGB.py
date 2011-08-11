@@ -1,24 +1,23 @@
 #!/usr/bin/python
-'''Derived from redbook/aargb.c'''
+'''Antialias in RGB mode.'''
 
-from graphics import *
+from Window import *
 
 class AntialiasRGB(Window):
 	'''Draw two anti-aliased lines in color rgb mode. 'r' rotates the lines in opposite directions.'''
 	def __init__(self):
 		'''Initialize antialiasing for RGBA mode, including alpha blending, hint, and line width. '''
-		'''Print out implementation  specific info on line width granularity and width.'''
-		super(AntialiasRGB, self).__init__("Antialias RGB", 200, 200, True)
+		super(AntialiasRGB, self).__init__("aargb.c", "Antialias RGB", 200, 200, True)
 		self.angle = 0.0
 		self.keybindings['r'] = self.rotate
+		# Print out implementation  specific info on line width granularity and width.
 		print "GL_LINE_WIDTH_GRANULARITY value is ", glGetDoublev(GL_LINE_WIDTH_GRANULARITY)
-		print "GL_LINE_WIDTH_RANGE values are ", glGetDoublev(GL_LINE_WIDTH_RANGE) #This should have 2 values?
+		print "GL_LINE_WIDTH_RANGE values are ", glGetDoublev(GL_LINE_WIDTH_RANGE) #XXX This should have 2 values?
 		glEnable(GL_LINE_SMOOTH)
 		glEnable(GL_BLEND)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 		glHint(GL_LINE_SMOOTH_HINT, GL_DONT_CARE)
 		glLineWidth(1.5)
-
 
 	def rotate(self):
 		'''Increment the rotation angle by 20 degrees.'''
@@ -28,6 +27,7 @@ class AntialiasRGB(Window):
 		glutPostRedisplay()
 
 	def display(self):
+		'''Draw two lines.'''
 		glClear(GL_COLOR_BUFFER_BIT)
 		glColor3f(0, 1, 0)
 		glPushMatrix()

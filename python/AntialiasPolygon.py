@@ -1,14 +1,14 @@
 #!/usr/bin/python
-'''Derived from redbook/aapoly.c'''
+'''Antialias with polygon fill routines.'''
 
-from graphics import *
+from Window import *
 
 class AntialiasPolygon(Window):
 	'''Draw filled polygons with antialiased edges using GL_SRC_ALPHA_SATURATE blending. 't' toggles antialiasing.'''
 
 	def __init__(self):
 		'''Set up blending options and polygon state.'''
-		super(AntialiasPolygon, self).__init__("Antialias Polygon", 200, 200)
+		super(AntialiasPolygon, self).__init__( "aapoly.c", "Antialias Polygon", 200, 200)
 		glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_ALPHA|GLUT_DEPTH)
 		self.polySmooth = True
 		self.nFaces = 6

@@ -1,15 +1,15 @@
 #!/usr/bin/python
+'''Antialias in color indexing mode.'''
 
-from graphics import *
+from Window import *
 
 class AntialiasIndex(Window):
 	'''Draw two anti-aliased lines in color index mode. 'r' rotates the lines in opposite directions.'''
 	def __init__(self):
-		''' Initialize antialiasing for color index mode. A green color ramp starts at ramp1Start, a blue one at ramp2Start. \
-		The ramps must be multiples of 16.'''
-		super(AntialiasIndex, self).__init__("Antialias Index", 200, 200, True)
-		self.source = "aaindex.c"
+		''' Initialize antialiasing for color index mode.'''
+		super(AntialiasIndex, self).__init__("aaindex.c", "Antialias Index", 200, 200, True)
 		glutInitDisplayMode(GLUT_DOUBLE|GLUT_INDEX)
+		# The ramps must be multiples of 16.
 		self.rampSize   = 16
 		self.ramp1Start = 32
 		self.ramp2Start = 48
@@ -17,6 +17,8 @@ class AntialiasIndex(Window):
 		self.keybindings['r'] = self.rotate
 		for index in range(self.rampSize):
 			shade = float(index)/self.rampSize
+			# A green color ramp starts at ramp1Start, a blue one at ramp2Start.
+			# XXX Does not appear to be blue or green to me.
 			glutSetColor(self.ramp1Start+index, 0, shade, 0)
 			glutSetColor(self.ramp2Start+index, 0, 0, shade)
 		glEnable(GL_LINE_SMOOTH)

@@ -1,5 +1,6 @@
 #!/usr/bin/python
-'''Common code for redbook examples. Original source (c)1993-1997, Silicon Graphics, Inc.'''
+'''Abstract GLUT window that takes care of all the busy work.'''
+
 from OpenGL.GL	 import *
 from OpenGL.GLU  import *
 from OpenGL.GLUT import *
@@ -10,8 +11,9 @@ def noop():
 
 class Window(object):
 	'''An abstract GLUT window.'''
-	def __init__(self, title="Untitled Window", width=500, height=500, ortho=False):
-		'''Constructs a window with the given title and dimensions.'''
+	def __init__(self, source=None, title="Untitled Window", width=500, height=500, ortho=False):
+		'''Constructs a window with the given title and dimensions. Source is the original redbook file.'''
+		self.source = source
 		self.ortho  = ortho
 		self.width  = width
 		self.height = height
@@ -19,7 +21,7 @@ class Window(object):
 		glutInit()
 		glutInitWindowSize(self.width, self.height)
 		glutCreateWindow(title)
-		glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA) #clobber in child to override
+		glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA) #XXX clobber in child to override
 		glClearColor(0, 0, 0, 0)
 		glutReshapeFunc(self.reshape)
 		glutKeyboardFunc(self.keyboard)
@@ -55,6 +57,6 @@ class Window(object):
 	
 	@staticmethod
 	def run():
-		'''Start up the main loop. Actually static right now but may one day want to change.'''
+		'''Start up the main loop.'''
 		glutMainLoop()
 
