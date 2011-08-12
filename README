@@ -1,3 +1,7 @@
 Pythonic refactor of the OpenGL Redbook example source (http://www.opengl.org/resources/code/samples/redbook/).
 
-I hope you find it useful. - Craig
+As of fall 2011, this project is just getting underway in my free time. I've made write access public, so feel free
+to contribute.
+
+I'm trying to keep the class structure as simple as possible for now. Once all the files are working in python,
+I'll eliminate all duplication, hopefully creating an obvious and useful set of classes for working with GLUT.

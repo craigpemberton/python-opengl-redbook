@@ -29,8 +29,6 @@ class Window(object):
 
 	def keyboard(self, key, mouseX, mouseY):
 		'''Call the code mapped to the pressed key.'''
-		assert mouseX >= 0
-		assert mouseY >= 0
 		self.keybindings.get(key, noop)()
 	
 	def reshape(self, width, height):
