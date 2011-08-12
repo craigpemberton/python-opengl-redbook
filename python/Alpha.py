@@ -7,7 +7,7 @@ class Alpha(Window):
 
 	def __init__(self):
 		'''Initialize alpha blending function.'''
-		super(Alpha, self).__init__("alpha.c", "Alpha", 200, 200, True)
+		super(Alpha, self).__init__("alpha.c", "Alpha", 200, 200, 1)
 		self.leftFirst = True
 		glEnable(GL_BLEND)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
@@ -18,7 +18,6 @@ class Alpha(Window):
 	def toggle(self):
 		'''Use the 't' key to toggle the order of drawing polygons.'''
 		self.leftFirst = not self.leftFirst
-		glutPostRedisplay()
 
 	def drawLeftTriangle(self):
 		'''Draw yellow triangle on left hand side of screen.'''

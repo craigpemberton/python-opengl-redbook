@@ -11,7 +11,7 @@ def noop():
 
 class Window(object):
 	'''An abstract GLUT window.'''
-	def __init__(self, source=None, title="Untitled Window", width=500, height=500, ortho=False):
+	def __init__(self, source=None, title="Untitled Window", width=500, height=500, ortho=None):
 		'''Constructs a window with the given title and dimensions. Source is the original redbook file.'''
 		self.source = source
 		self.ortho  = ortho
@@ -30,6 +30,7 @@ class Window(object):
 	def keyboard(self, key, mouseX, mouseY):
 		'''Call the code mapped to the pressed key.'''
 		self.keybindings.get(key, noop)()
+		glutPostRedisplay()
 	
 	def reshape(self, width, height):
 		'''Recalculate the clipping window the GLUT window is resized.'''
@@ -39,11 +40,12 @@ class Window(object):
 		glMatrixMode(GL_PROJECTION)
 		glLoadIdentity()
 		aspect = float(self.height)/float(self.width)
+		# ortho is the scaling factor for the orthogonal projection
 		if self.ortho:
 			if(aspect > 1):
-				gluOrtho2D(-1, 1, -aspect, aspect)
+				gluOrtho2D(-self.ortho, self.ortho, -aspect, aspect)
 			else:
-				gluOrtho2D(-1/aspect, 1/aspect, -1, 1.0)
+				gluOrtho2D(-1/aspect, 1/aspect, -self.ortho, self.ortho)
 		else:
 			gluPerspective(30, 1.0/aspect, 1, 20)
 		glMatrixMode(GL_MODELVIEW)
