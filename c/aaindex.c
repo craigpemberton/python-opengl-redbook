@@ -94,7 +94,9 @@ void keyboard(unsigned char key, int x, int y)
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_INDEX);
+	//Be aware, my setup does not support color indexing. This code may regress since I cannot test it.
+	//glutInitDisplayMode (GLUT_SINGLE | GLUT_INDEX);
+	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGBA);
 	glutInitWindowSize(200, 200);
 	glutCreateWindow(argv[0]);
 	init();
