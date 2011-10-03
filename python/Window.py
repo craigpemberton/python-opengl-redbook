@@ -5,6 +5,14 @@ from OpenGL.GL	 import *
 from OpenGL.GLU  import *
 from OpenGL.GLUT import *
 
+# There is a hole in the python-opengl implementation of glMan2f.
+# The python implementation states:
+# 	glMap2f(target, u1, u2, v1, v2, points)
+# 		This is a completely non-standard signature which doesn't allow for most of the funky uses with
+# 		strides and the like, but it has been like this for a very long time...
+# The c implementation states:
+#	glMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
+
 def noop():
 	'''A function that does nothing.'''
 	pass
