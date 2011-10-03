@@ -14,9 +14,9 @@ GLfloat polyunits = 1.0;
 // Draw two spheres, one diffuse and gray, the other specular and magenta.
 void display(void)
 {
-	GLfloat mat_ambient[] = { 0.8, 0.8, 0.8, 1.0 };
-	GLfloat mat_diffuse[] = { 1.0, 0.0, 0.5, 1.0 };
-	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	//GLfloat mat_ambient[] = { 0.8, 0.8, 0.8, 1.0 };
+	//GLfloat mat_diffuse[] = { 1.0, 0.0, 0.5, 1.0 };
+	//GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat gray[] = { 0.8, 0.8, 0.8, 1.0 };
 	GLfloat black[] = { 0.0, 0.0, 0.0, 1.0 };
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

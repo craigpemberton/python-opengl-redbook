@@ -25,7 +25,7 @@ void makeCheckImages(void)
 	{
 		for(j = 0; j < checkImageWidth; j++)
 		{
-			c = ((((i&0x8)==0)^((j&0x8))==0))*255;
+			c = ( ((i&0x8)==0 ) ^ ((j&0x8)==0) )*255;
 			checkImage[i][j][0] = (GLubyte) c;
 			checkImage[i][j][1] = (GLubyte) c;
 			checkImage[i][j][2] = (GLubyte) c;
@@ -37,7 +37,7 @@ void makeCheckImages(void)
 	{
 		for(j = 0; j < subImageWidth; j++)
 		{
-			c = ((((i&0x4)==0)^((j&0x4))==0))*255;
+			c = ( ((i&0x4)==0 ) ^ ((j&0x4)==0) )*255;
 			subImage[i][j][0] = (GLubyte) c;
 			subImage[i][j][1] = (GLubyte) 0;
 			subImage[i][j][2] = (GLubyte) 0;

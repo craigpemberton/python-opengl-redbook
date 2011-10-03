@@ -20,12 +20,12 @@ void makeCheckImages(void)
 	{
 		for(j = 0; j < checkImageWidth; j++)
 		{
-			c = ((((i&0x8)==0)^((j&0x8))==0))*255;
+			c = ( ((i&0x8)==0 ) ^ ((j&0x8)==0) )*255;
 			checkImage[i][j][0] = (GLubyte) c;
 			checkImage[i][j][1] = (GLubyte) c;
 			checkImage[i][j][2] = (GLubyte) c;
 			checkImage[i][j][3] = (GLubyte) 255;
-			c = ((((i&0x10)==0)^((j&0x10))==0))*255;
+			c = ( ((i&0x10)==0 ) ^ ((j&0x10)==0) )*255;
 			otherImage[i][j][0] = (GLubyte) c;
 			otherImage[i][j][1] = (GLubyte) 0;
 			otherImage[i][j][2] = (GLubyte) 0;
