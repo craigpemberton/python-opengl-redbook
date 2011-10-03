@@ -3,12 +3,12 @@
 
 from Window import *
 
-class Bezier(Window):
+class BezierCurve(Window):
 	'''Use evaluators to draw a Bezier curve.'''
 
 	def __init__(self):
 		'''Constructor'''
-		super(Bezier, self).__init__("bezcurve.c", "Bezier", 500, 500, True)
+		super(BezierCurve, self).__init__("bezcurve.c", "Bezier Curve", 500, 500, True)
 		self.controlPoints = ((-4/5.0, -4/5.0, 0),( -2/5.0, 4/5.0, 0), (2/5.0, -4/5.0, 0), (4/5.0, 4/5.0, 0))
 		glClearColor(0, 0, 0, 0)
 		glShadeModel(GL_FLAT)
@@ -32,4 +32,4 @@ class Bezier(Window):
 		glFlush()
 
 if __name__ == '__main__':
-	Bezier().run()
+	BezierCurve().run()

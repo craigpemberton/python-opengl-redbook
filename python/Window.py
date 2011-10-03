@@ -34,12 +34,34 @@ class Window(object):
 		glutReshapeFunc(self.reshape)
 		glutKeyboardFunc(self.keyboard)
 		glutDisplayFunc(self.display)
+		glutMouseFunc(self.mouse)
 
 	def keyboard(self, key, mouseX, mouseY):
 		'''Call the code mapped to the pressed key.'''
 		self.keybindings.get(key, noop)()
 		glutPostRedisplay()
 	
+	def mouse(self, button, state, x, y):
+		'''Handle mouse clicking.'''
+		if button == GLUT_LEFT_BUTTON:
+			self.mouseLeftClick(x, y)
+		elif button == GLUT_MIDDLE_BUTTON:
+			self.mouseMiddleClick(x, y)
+		elif button == GLUT_RIGHT_BUTTON:
+			self.mouseRightClick(x, y)
+		else:
+			raise ValueError(button)
+		glutPostRedisplay()
+
+	def mouseLeftClick(self, x, y):
+		pass
+
+	def mouseMiddleClick(self, x, y):
+		pass
+
+	def mouseRightClick(self, x, y):
+		pass
+
 	def reshape(self, width, height):
 		'''Recalculate the clipping window the GLUT window is resized.'''
 		self.width  = width
