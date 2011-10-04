@@ -35,6 +35,7 @@ class Window(object):
 		glutKeyboardFunc(self.keyboard)
 		glutDisplayFunc(self.display)
 		glutMouseFunc(self.mouse)
+		glShadeModel(GL_FLAT)
 
 	def keyboard(self, key, mouseX, mouseY):
 		'''Call the code mapped to the pressed key.'''
