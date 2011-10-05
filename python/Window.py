@@ -29,7 +29,8 @@ class Window(object):
 		glutInit()
 		glutInitWindowSize(self.width, self.height)
 		glutCreateWindow(title)
-		glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA) #XXX clobber in child to override
+		# Just request them all and don't worry about it.
+		glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA|GLUT_DEPTH)
 		glClearColor(0, 0, 0, 0)
 		glutReshapeFunc(self.reshape)
 		glutKeyboardFunc(self.keyboard)
